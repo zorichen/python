@@ -13,8 +13,9 @@ def urlToSoup(url):
         return soup
     except:
         return None
-# 从豆瓣抓取电影详细信息
-def getMovieInfo(url):
+
+# 从豆瓣抓取电影详细信息，传入url，返回movie对象
+def getDoubanMovieInfo(url):
     # 通过url获得BeautifulSoup对象
     soup = urlToSoup(url)
 
@@ -114,11 +115,11 @@ def getMovieInfo(url):
     except:
         main_pic = None
 
-    # 豆瓣 subject id
+    # 豆瓣 subject_id
     try:
-        douban = url.strip("https://movie.douban.com/subject/")
+        douban_id = url.strip("https://movie.douban.com/subject/")
     except:
-        douban = None
+        douban_id = None
     # 豆瓣评分
     try:
         douban_rating = soup.find("strong", property="v:average").get_text()
@@ -133,9 +134,9 @@ def getMovieInfo(url):
 
     # IMDb id
     try:
-        imdb = soup.find("a", text=re.compile("tt")).get_text()
+        imdb_id = soup.find("a", text=re.compile("tt")).get_text()
     except:
-        imdb = None
+        imdb_id = None
     
     # 拼接成电影信息json
     movie = {

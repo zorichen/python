@@ -6,7 +6,7 @@ import traceback
 db_host = "193.112.100.48"
 db_name = "test"
 db_username = "zorichen"
-db_password = "1@3456789o"
+db_password = "123456"
 db_charset = "utf8"
 
 
@@ -26,9 +26,9 @@ def handleSQL(sql,data):
     try:
         cursor.execute(sql,data)
         db.commit()
-        print("添加成功")
+        print("执行SQL成功")
     except Exception as e:
-        print("添加失败：", e)
+        print("执行SQL失败：", e)
         db.rollback()
     finally:
         db.close
