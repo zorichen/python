@@ -152,10 +152,14 @@ def getDoubanMovieInfo(url):
         "released": released,
         "runtime": runtime,
         "main_pic": main_pic,
-        "douban": douban,
+        "douban_id": douban_id,
         "douban_rating": douban_rating,
         "douban_top250": douban_top250,
-        "imdb": imdb
+        "imdb_id": imdb_id
     }
     
     return movie
+
+# # 测试
+# movie = getDoubanMovieInfo("https://movie.douban.com/subject/1851857/")
+# print(movie)

@@ -1,4 +1,5 @@
 # coding: UTF-8
+from movie_db import *
 import time
 
 # 获得当前时间

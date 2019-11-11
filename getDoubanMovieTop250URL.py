@@ -24,3 +24,8 @@ def getDoubanMovieTop250URL():
         for movie in soup.select(".hd>a"):
             url_list.append(movie.attrs["href"])
     return url_list
+
+# 测试
+
+url_list = getDoubanMovieTop250URL()
+print(url_list)
